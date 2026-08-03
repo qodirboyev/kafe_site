@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restoran nomi</title>
+</head>
+<body>
+<!-- header section -->
+    <header id="Xeader_section" class="Xeader_sectiom" >
+        <div class="header_item">
+            <h1>Restoran nomi</h1>
+        </div>
+        <div class="welcome_text">
+            <p>Bizni tanlab adashmadingiz</p>
+            <p>100% kafolatlangan taomlar</p>
+            <p>va ajoyib zamonzvbiy xizmat</p>
+            <p>faqat siz uchun</p>
+        </div>
+        <div class="header_item">
+            <h1><a href="{% url 'food_category' %}">ortga🔙</a></h1>
+        </div>
+    </header>
+<!--/ header section -->
+
+<!--category_banner-->
+    <section class="category_banner" id="category_banner">
+        <img src="{{ item.image.url }}" alt="foto">
+        <h3 class="category_name">{{ item.name }}</h3>
+        <p>{{ item.info }}</p>
+    </section>
+<!--/category_banner-->
+
+<!--taomlar menusi-->
+    <section class="food_menu" id="food_menu">
+        {% for i in Food %}
+            <a href="{% url "food_detail" i.pk %}">
+                <div class="food_card">
+                   <div class="food_image">
+                       <img src="{{ i.image.url }}" alt="foto">
+                   </div>
+                   <div class="food_name">
+                       <h4>{{ i.name }}</h4>
+                   </div>
+                   <div class="food_info">
+                       <p>{{ i.info }}</p>
+                   </div>
+                   <div class="food_narx">
+                       <h4>{{ i.narx }}</h4>
+                   </div>
+                </div>
+            </a>
+        {% endfor %}
+    </section>
+<!--/taomlar menusi-->
+
+<!--Footer section-->
+    <footer class="footer">
+        <div class="footer_left">
+            <h4>Restoran Nomi</h4>
+            <a href="">Restoran Manzili</a>
+            <h4>+998 9X XXX XX XX</h4>
+        </div>
+        <div class="footer_center">
+            <div class="restoran_media">
+                <h4>instagram,telagram,admin</h4>
+            </div>
+            <p>© 2026 Restoran Nomi. Sayt barcha foydalanuvchilar uchun ochiq.</p>
+        </div>
+        <div class="footer_right">
+            <h4>Ish vaqti: 24/7</h4>
+            <h4>restoran_name@gmail.com</h4>
+            <h4>Halq xizmatida</h4>
+        </div>
+    </footer>
+<!--/Footer section-->
+</body>
+</html>

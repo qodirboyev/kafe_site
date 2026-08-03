@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restoran nomi</title>
+</head>
+<body>
+<!-- header section -->
+    <header id="Xeader_section" class="Xeader_sectiom" >
+        <div class="header_item">
+            <h1>Restoran nomi</h1>
+        </div>
+        <div class="welcome_text">
+            <p>Bizni tanlab adashmadingiz</p>
+            <p>100% kafolatlangan taomlar</p>
+            <p>va ajoyib zamonzvbiy xizmat</p>
+            <p>faqat siz uchun</p>
+        </div>
+        <div class="header_item">
+            <h1><a href="{% url 'home' %}">ortga🔙</a></h1>
+        </div>
+    </header>
+<!-- /header section -->
+
+<!--categorys section-->
+    <section class="category_menu" id="category_menu">
+        {% for item in object_list %}
+        <a href="{% url 'category_detail' item.pk %}">
+            <div class="category">
+                <div class="category_data">
+                    <img src="{{ item.image.url }}" alt="foto">
+                </div>
+                <div class="category_data">
+                    <h4>{{ item.name }}</h4>
+                </div>
+                <div class="category_data">
+                    <p>{{ item.info }}</p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </section>
+<!--/category section-->
+
+<!--Footer section-->
+    <footer class="footer">
+        <div class="footer_left">
+            <h4>Restoran Nomi</h4>
+            <a href="">Restoran Manzili</a>
+            <h4>+998 9X XXX XX XX</h4>
+        </div>
+        <div class="footer_center">
+            <div class="restoran_media">
+                <h4>instagram,telagram,admin</h4>
+            </div>
+            <p>© 2026 Restoran Nomi. Sayt barcha foydalanuvchilar uchun ochiq.</p>
+        </div>
+        <div class="footer_right">
+            <h4>Ish vaqti: 24/7</h4>
+            <h4>restoran_name@gmail.com</h4>
+            <h4>Halq xizmatida</h4>
+        </div>
+    </footer>
+<!--/Footer section-->
+
+</body>
+</html>

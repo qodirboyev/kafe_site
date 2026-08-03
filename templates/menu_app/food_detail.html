@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restoran nomi</title>
+</head>
+<body>
+<!-- header section -->
+    <header id="Xeader_section" class="Xeader_sectiom" >
+        <div class="header_item">
+            <h1>Restoran nomi</h1>
+        </div>
+        <div class="welcome_text">
+            <p>Bizni tanlab adashmadingiz</p>
+            <p>100% kafolatlangan taomlar</p>
+            <p>va ajoyib zamonzvbiy xizmat</p>
+            <p>faqat siz uchun</p>
+        </div>
+        <div class="header_item">
+            <h1><a href="{% url 'category_detail' i.pk %}">ortga🔙</a></h1>
+        </div>
+    </header>
+<!--/ header section -->
+
+<!-- food data section -->
+    <section class="food_data" id="food_data">
+        <div class="food_img">
+            <img src="{{ i.image.url }}" alt="foto">
+        </div>
+        <div class="food_info">
+            <h3 class="category_name">{{ i.name }}</h3>
+            <p>{{ i.info }}</p>
+            <p>{{ i.narx }}</p>
+        </div>
+    </section>
+<!-- /food data section -->
+
+
+<!--Footer section-->
+    <footer class="footer">
+        <div class="footer_left">
+            <h4>Restoran Nomi</h4>
+            <a href="">Restoran Manzili</a>
+            <h4>+998 9X XXX XX XX</h4>
+        </div>
+        <div class="footer_center">
+            <div class="restoran_media">
+                <h4>instagram,telagram,admin</h4>
+            </div>
+            <p>© 2026 Restoran Nomi. Sayt barcha foydalanuvchilar uchun ochiq.</p>
+        </div>
+        <div class="footer_right">
+            <h4>Ish vaqti: 24/7</h4>
+            <h4>restoran_name@gmail.com</h4>
+            <h4>Halq xizmatida</h4>
+        </div>
+    </footer>
+<!--/Footer section-->
+</body>
+</html>
