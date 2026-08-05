@@ -32,6 +32,17 @@
             <p>{{ i.info }}</p>
             <p>{{ i.narx }}</p>
         </div>
+        <div class="food_form">
+            <h4>Buyurtma berish</h4>
+            <form action="{% url 'add_food_card' %}" method="post">
+                {% csrf_token %}
+                <label for="food_soni">Nechta buyurtma qilasiz:</label>
+                <input type="number" name="food_soni" value="1" min="1" id="food_soni">
+                <label for="food_name">Tasdiqlash</label>
+                <input type="checkbox" value="{{ i.name }}" name="food_name" id="food_name">
+                <button type="submit">Qoshish+</button>
+            </form>
+        </div>
     </section>
 <!-- /food data section -->
 
