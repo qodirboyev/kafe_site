@@ -17,41 +17,49 @@
             <p>faqat siz uchun</p>
         </div>
         <div class="header_item">
-            <h1><a href="{% url 'category_detail' i.pk %}">ortga🔙</a></h1>
+            <h1><a href="{% url 'food_category' %}">ortga🔙</a></h1>
         </div>
     </header>
 <!--/ header section -->
 
-<!-- food data section -->
-    <section class="food_data" id="food_data">
-        <div class="food_img">
-            <img src="{{ i.image.url }}" alt="foto">
+<!-- orders food -->
+    <section class="food_orders" id="food_orders">
+        {% for item in orders %}
+        <div class="cart_item">
+            <img src="{{ item.food.image.url }}"
+                width="100"
+                alt="{{ item.food.name }}">
+            <h3>{{ item.food.name }}</h3>
+            <p>{{ item.food.narx }} so'm</p>
+
+            <!-- SONINI BOSHQARISH -->
+
+            <div class="quantity">
+                <a href="{% url 'decrease_food' item.food.pk %}">-</a>
+                <span>{{ item.quantity }}</span>
+                <a href="{% url 'increase_food' item.food.pk %}">+</a>
+            </div>
+            <p>Jami: {{ item.summa }} so'm</p>
+
+            <!-- O'CHIRISH -->
+
+            <a href="{% url 'remove_food' item.food.pk %}">🗑️ O'chirish</a>
         </div>
-        <div class="food_info">
-            <h3 class="category_name">{{ i.name }}</h3>
-            <p>{{ i.info }}</p>
-            <p>{{ i.narx }}</p>
-        </div>
-        <div class="food_form">
-            <h4>Buyurtma berish</h4>
-            <form action="{% url 'food_orders' %}" method="post">
-                {% csrf_token %}
-                <label for="food_soni">Nechta:</label>
-                <input
-                    type="number"
-                    name="food_soni"
-                    value="1"
-                    min="1"
-                    id="food_soni">
-                <input
-                    type="hidden"
-                    name="food_id"
-                    value="{{ i.pk }}">
-                <button type="submit">Savatga qo'shish +</button>
-            </form>
-        </div>
+        <hr>
+        {% empty %}
+        <p>Savat bo'sh.</p>
+        {% endfor %}
+        {% if orders %}
+        <h2>            Jami: {{ jami_narx }} so'm</h2>
+        <form action="{% url 'create_order' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">
+                Buyurtma berish
+            </button>
+        </form>
+        {% endif %}
     </section>
-<!-- /food data section -->
+<!--/ orders food -->
 
 
 <!--Footer section-->

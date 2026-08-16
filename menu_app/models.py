@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 # Create your models here.
@@ -26,3 +27,49 @@ class Food(models.Model):
 
     def get_absolute_url(self):
         return reverse('food_detail', args=[self.pk])
+
+
+
+
+
+class Order(models.Model):
+
+    STATUS_CHOICES = [
+        ("new", "Yangi"),
+        ("accepted", "Qabul qilindi"),
+        ("cooking", "Tayyorlanmoqda"),
+        ("ready", "Tayyor"),
+        ("completed", "Yakunlandi"),
+        ("cancelled", "Bekor qilindi"),
+    ]
+
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default="new"
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Buyurtma #{self.pk}"
+
+class OrderItem(models.Model):
+
+    order = models.ForeignKey(
+        Order,
+        on_delete=models.CASCADE,
+        related_name="items"
+    )
+
+    food = models.ForeignKey(
+        Food,
+        on_delete=models.CASCADE
+    )
+
+    quantity = models.PositiveIntegerField()
+
+    price = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.food.name} x {self.quantity}"
