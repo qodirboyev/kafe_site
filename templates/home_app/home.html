@@ -30,12 +30,29 @@
                         <span>Bizni tanlab adashmadingiz
                             💯% kafolatlangan taomlar
                             va ajoyib zamonaviy xizmat faqat siz uchun.</span>
-                        </p>
+                    </p>
                 </div>
                 <div class="header_item" style="text-align: end;">
-                    <h1 class="text">username
-                        <i class="fa-solid fa-circle-user" style="color: rgba(26, 26, 235, 0.751);"></i>
-                    </h1>
+                    <div class="profile">
+                        {% if user.is_authenticated %}
+                        <h1 class="text">{{ user.username }}
+                            <i class="fa-solid fa-circle-user" style="color: rgba(26, 26, 235, 0.751);"></i>
+                        </h1>
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="button">logout<i class="fa-solid fa-right-from-bracket"></i></button>
+                        </form>
+                        {% else %}
+                            <form action="{% url 'login' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="button">Login<i class="fa-solid fa-right-to-bracket"></i></button>
+                            </form>
+                            <form action="{% url 'signup' %}" method="get">
+                                {% csrf_token %}
+                                <button type="submit" class="button">Signup<i class="fa-solid fa-user-plus"></i></button>
+                            </form>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>

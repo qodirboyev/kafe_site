@@ -39,6 +39,7 @@ a{
 .header_section{
     width: 100%;
     z-index: 10;
+    top: 0;
     position: fixed;
     background-image: url(https://st3.depositphotos.com/29179304/34187/i/1600/depositphotos_341872146-stock-photo-white-food-background-concept-for.jpg);
     background-repeat: no-repeat;
@@ -86,6 +87,49 @@ a{
     }
 }
 
+.profile{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.button{
+    margin: 0.2rem;
+    background: linear-gradient(to left, red,green);
+}
+
+
+.button_a{
+    margin: 0;
+    background: linear-gradient(to left,red,green);
+    display: inline-block;
+    box-sizing: border-box;
+    transform: translate(-7px,-7px);
+    border: 2px outset buttonborder;
+}
+
+
+.button,
+.button_a{
+    box-shadow: 3px 3px 3px rgb(0 0 0 / 0.71);
+    color: white;
+    border-radius: 10px;
+    transition: 1s all;
+    font-size: 0.9rem;
+    padding: 0.2rem;
+}
+
+
+.button:hover{
+    transform: scale(1.1,1.1) translateY(-2px);
+    background: linear-gradient(to right,red,green);
+    color: yellow;
+}
+
+.button_a:hover{
+    transform: scale(1.1,1.1) translate(-7px,-7px);
+    background: linear-gradient(to right,red,green);
+    color: rgb(255 255 0 / 0.9);
+}
 
 
 /* ================================ header section ========================================= */

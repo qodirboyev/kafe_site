@@ -1,0 +1,84 @@
+/* ================ login and signup section style ====================================== */
+
+.login_section,
+.signup_section{
+    width: 100%;
+    min-height: 600px;
+    box-sizing: border-box;
+    padding: 100px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form_card{
+    padding: 2rem;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 5px rgb(0 0 0 / 0.89);
+    border-radius: 20px;
+    border: 2px outset buttonborder;
+    background: linear-gradient(to left top, rgb(0 0 0 / 0.17), rgb(255 255 255 / 0.14));
+    backdrop-filter: blur(10px);
+}
+
+
+.form_card h4{
+    text-align: center;
+    color: rgb(255 255 255 / 0.93);
+    margin: 0;
+    padding: 0.3rem;
+    font-size: 2rem;
+}
+
+.form_card ul,
+.form_card span{
+    display: none;
+}
+
+.form_card label{
+    color: rgb(255 255 255 / 0.87);
+    font-size: 1rem;
+    margin: 0;
+    padding: 1rem;
+    text-shadow: 2px 2px 2px rgb(0 0 0 / 0.84);
+}
+
+
+.form_card input{
+    width: 100%;
+    outline-color: rgb(0 0 255 / 0.89);
+    font-size: 1rem;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgb(0 0 0 / 0.84);
+    transition: 1s all;
+}
+
+.form_card input:focus{
+    width: 98%;
+    transform: scale(1.1,1.1) translateY(2px);
+}
+
+
+.form_card button{
+    width: 46%;
+}
+
+.form_card a{
+    padding: 0.2rem;
+    margin: 0;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgb(0 0 0 / 0.95);
+    box-sizing: border-box;
+    transition: 0.5s all;
+    font-size: 1rem;
+    font-weight: bold;
+    display: inline-block;
+    width: 50%;
+}
+
+.form_card a:hover{
+    color: rgb(255 255 255 / 0.93);
+}
+
+/* ================ login and signup section style ====================================== */

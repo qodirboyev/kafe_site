@@ -6,6 +6,8 @@
     <title>Restoran nomi</title>
     <link rel="icon" href="https://tse1.mm.bing.net/th/id/OIP.t4sPy2k8IHLrb1D6CXrUTgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login_signup.css' %}">
+
 
 
 
@@ -33,7 +35,7 @@
                 </div>
                 <div class="header_item" style="text-align: end;">
                     <h1 class="text">
-                        <a href="{% url 'home' %}">ortga🔙</a>
+                        <a href="{% url 'home' %}" class="button_a">ortga<i class="fa-solid fa-rotate-left"></i></a>
                     </h1>
                 </div>
             </div>
@@ -42,27 +44,21 @@
     <div class="clearfix"></div>
 <!-- /header section -->
 
-<!--categorys section-->
-    <section class="category_menu" id="category_menu">
-        {% for item in object_list %}
-        <a href="{% url 'category_detail' item.pk %}">
-            <div class="category">
-                <div class="category_data">
-                    <img src="{{ item.image.url }}" alt="foto">
-                </div>
-                <div class="category_data">
-                    <h4>{{ item.name }}</h4>
-                </div>
-                <div class="category_data">
-                    <p>{{ item.info }}</p>
-                </div>
+
+<!-- signup section -->
+    <section class="signup_section">
+        <div class="form_card">
+            <h4 class="text">Ro'yxatdan o'tish<i class="fa-solid fa-user-plus"></i></h4>
+            <div>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="button">Tasdiqlash<i class="fa-solid fa-user-plus"></i></button>
+                </form>
             </div>
-        </a>
-        {% endfor %}
+        </div>
     </section>
-<!--/category section-->
-
-
+<!-- /signup section -->
 
 <!--Footer section-->
     <footer class="footer">
