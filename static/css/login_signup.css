@@ -40,12 +40,14 @@
     color: rgb(255 255 255 / 0.87);
     font-size: 1rem;
     margin: 0;
-    padding: 1rem;
+    padding: 0.2rem;
     text-shadow: 2px 2px 2px rgb(0 0 0 / 0.84);
+    display: inline-block;
 }
 
 
 .form_card input{
+    display: inline-block;
     width: 100%;
     outline-color: rgb(0 0 255 / 0.89);
     font-size: 1rem;
@@ -71,7 +73,7 @@
     text-shadow: 1px 1px 2px rgb(0 0 0 / 0.95);
     box-sizing: border-box;
     transition: 0.5s all;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: bold;
     display: inline-block;
     width: 50%;

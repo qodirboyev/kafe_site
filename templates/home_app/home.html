@@ -139,16 +139,37 @@
 <div class="cantener">
     <section class="comment_users" id="comment_users">
         <h1 class="text">Biz haqimizda izohlar <i class="fa-solid fa-comment-dots" style="color: rgba(255, 255, 255, 0.735);"></i></h1>
+        {% for item in object_list %}
         <div class="comment">
-            <h4 class="text"><i class="fa-solid fa-circle-user" style="color: rgba(26, 26, 235, 0.751);"></i>username</h4>
-            <p class="text">users_comments</p>
+            <h4 class="text"><i class="fa-solid fa-circle-user" style="color: rgba(26, 26, 235, 0.751);"></i>{{ item.user }}</h4>
+            <p class="text">{{ item.comment }}</p>
             <div class="comment_status text">
-                <p>comment_star</p>
-                <p>comment_datetime</p>
-                <p>comment_edit_delet</p>
+                {% if item.star == 5 %}
+                <p>⭐⭐⭐⭐⭐</p>
+                {% elif item.star == 4 %}
+                <p>⭐⭐⭐⭐</p>
+                {% elif item.star == 3 %}
+                <p>⭐⭐⭐</p>
+                {% elif item.star == 2 %}
+                <p>⭐⭐</p>
+                {% else %}
+                <p>⭐</p>
+                {% endif %}
+                <p>{{ item.date|date:"d F Y, H:i" }}</p>
+                <p>
+                    <a href="{% url 'update_comment' item.pk %}" class="text">Edit</a>
+                    <a href="{% url 'delete_comment' item.pk %}" class="text">Delete</a>
+                </p>
             </div>
         </div>
+        {% endfor %}
     </section>
+    <div class="add_comment">
+        <form action="add_comment" method="get">
+            {% csrf_token %}
+            <button type="submit" class="button">Izoh qoldirish<i class="fa-solid fa-comment-dots" style="color: rgba(255, 255, 255, 0.735);"></i></button>
+        </form>
+    </div>
 </div>
 <div class="clearfix"></div>
 <!-- /Biz xaqimizda izohlar -->
