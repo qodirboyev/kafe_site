@@ -1,15 +1,17 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from menu_app.models import Food_category, Food,Order, OrderItem
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class Food_category_view(ListView):
+class Food_category_view(LoginRequiredMixin,ListView):
     model = Food_category
     context_object_name = 'item'
     template_name = "menu_app/category.html"
 
 
-class Category_detail_view(DetailView):
+class Category_detail_view(LoginRequiredMixin,DetailView):
     model = Food_category
     context_object_name = 'item'
     template_name = "menu_app/category_detail.html"
@@ -24,12 +26,14 @@ class Category_detail_view(DetailView):
         return context
 
 
-class Food_detail_view(DetailView):
+class Food_detail_view(LoginRequiredMixin,DetailView):
     model = Food
     template_name = 'menu_app/food_detail.html'
     context_object_name = 'i'
 
 
+
+@login_required(login_url="login")
 def food_orders_view(request):
 
     if request.method == "POST":
@@ -88,7 +92,7 @@ def food_orders_view(request):
 
 
 
-
+@login_required(login_url="login")
 def increase_food(request, food_id):
 
     foods_card = request.session.get("food_card", {})
@@ -105,7 +109,7 @@ def increase_food(request, food_id):
 
 
 
-
+@login_required(login_url="login")
 def decrease_food(request, food_id):
 
     foods_card = request.session.get("food_card", {})
@@ -125,7 +129,7 @@ def decrease_food(request, food_id):
     return redirect("food_orders")
 
 
-
+@login_required(login_url="login")
 def remove_food(request, food_id):
 
     foods_card = request.session.get("food_card", {})
@@ -141,7 +145,7 @@ def remove_food(request, food_id):
     return redirect("food_orders")
 
 
-
+@login_required(login_url="login")
 def create_order(request):
 
     foods_card = request.session.get("food_card", {})

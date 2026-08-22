@@ -46,13 +46,15 @@
 
 
     <section class="comment_section">
-        <h4 class="text">Izohni o'chirish <i class="fa-solid fa-trash-can"></i></h4>
-        <div class="comment_form">
-            <form action="" method="post">
-                {% csrf_token %}
-                <h4 class="text">({{ item.comment }})-izohni o'chirish. <i class="fa-solid fa-trash-can"></i></h4>
-                <button type="submit" class="button">Delete <i class="fa-solid fa-trash-can"></i></button>
-            </form>
+        <div class="comment_form_card">
+            <h4 class="text">Izohni o'chirish <i class="fa-solid fa-trash-can"></i></h4>
+            <div class="comment_form">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <p class="text delete_comment">({{ item.comment }})-izohni o'chirish.</p>
+                    <button type="submit" class="button">Delete <i class="fa-solid fa-trash-can"></i></button>
+                </form>
+            </div>
         </div>
     </section>
 
