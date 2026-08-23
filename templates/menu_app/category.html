@@ -1,93 +1,95 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Restoran nomi</title>
-    <link rel="icon" href="https://tse1.mm.bing.net/th/id/OIP.t4sPy2k8IHLrb1D6CXrUTgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <head>
+        <meta charset="UTF-8">
+        <title>Restoran nomi</title>
+        <link rel="icon" href="https://tse1.mm.bing.net/th/id/OIP.t4sPy2k8IHLrb1D6CXrUTgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/category.css' %}">
 
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-
-<!-- header section -->
-    <header id="header_section" class="header_section">
-        <div class="cantener">
-            <div class="header_div">
-                <div class="header_item">
-                    <a href="{% url 'home' %}">
-                        <h1 class="text">Restoran
-                            <i class="fa-solid fa-utensils" style="color: rgba(255, 0, 0, 0.815);"></i>
+    <!-- header section -->
+        <header id="header_section" class="header_section">
+            <div class="cantener">
+                <div class="header_div">
+                    <div class="header_item">
+                        <a href="{% url 'home' %}">
+                            <h1 class="text">Restoran
+                                <i class="fa-solid fa-utensils" style="color: rgba(255, 0, 0, 0.815);"></i>
+                            </h1>
+                        </a>
+                    </div>
+                    <div class="header_item">
+                        <p class="text">
+                            <span>Bizni tanlab adashmadingiz
+                                💯% kafolatlangan taomlar
+                                va ajoyib zamonaviy xizmat faqat siz uchun.</span>
+                            </p>
+                    </div>
+                    <div class="header_item" style="text-align: end;">
+                        <h1 class="text">
+                            <a href="{% url 'home' %}" class="button_a">ortga<i class="fa-solid fa-rotate-left"></i></a>
                         </h1>
-                    </a>
-                </div>
-                <div class="header_item">
-                    <p class="text">
-                        <span>Bizni tanlab adashmadingiz
-                            💯% kafolatlangan taomlar
-                            va ajoyib zamonaviy xizmat faqat siz uchun.</span>
-                        </p>
-                </div>
-                <div class="header_item" style="text-align: end;">
-                    <h1 class="text">
-                        <a href="{% url 'home' %}">ortga🔙</a>
-                    </h1>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
-    <div class="clearfix"></div>
-<!-- /header section -->
+        </header>
+        <div class="clearfix"></div>
+    <!-- /header section -->
 
-<!--categorys section-->
-    <section class="category_menu" id="category_menu">
-        {% for item in object_list %}
-        <a href="{% url 'category_detail' item.pk %}">
-            <div class="category">
-                <div class="category_data">
-                    <img src="{{ item.image.url }}" alt="foto">
+
+
+
+    <!--categorys section-->
+        <section class="category_menu" id="category_menu">
+            {% for item in object_list %}
+            <a href="{% url 'category_detail' item.pk %}">
+                <div class="category text">
+                    <div class="category_data">
+                        <img src="{{ item.image.url }}" alt="foto">
+                    </div>
+                    <div class="category_data">
+                        <h4>{{ item.name }}</h4>
+                    </div>
+                    <div class="category_data">
+                        <p>{{ item.info }}</p>
+                    </div>
                 </div>
-                <div class="category_data">
-                    <h4>{{ item.name }}</h4>
-                </div>
-                <div class="category_data">
-                    <p>{{ item.info }}</p>
-                </div>
+            </a>
+            {% endfor %}
+        </section>
+    <!--/category section-->
+
+
+    <!--Footer section-->
+        <footer class="footer">
+            <div class="footer_left footer_text">
+                <h4>Restoran</h4>
+                <h4><a href="">Restoran Manzili</a></h4>
+                <h4>+998 9X XXX XX XX</h4>
             </div>
-        </a>
-        {% endfor %}
-    </section>
-<!--/category section-->
-
-
-
-<!--Footer section-->
-    <footer class="footer">
-        <div class="footer_left footer_text">
-            <h4>Restoran</h4>
-            <h4><a href="">Restoran Manzili</a></h4>
-            <h4>+998 9X XXX XX XX</h4>
-        </div>
-        <div class="footer_center footer_text">
-            <div class="restoran_media">
-                <h4>
-                    <i class="fa-brands fa-telegram"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-square-twitter"></i>
-                </h4>
+            <div class="footer_center footer_text">
+                <div class="restoran_media">
+                    <h4>
+                        <i class="fa-brands fa-telegram"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-square-twitter"></i>
+                    </h4>
+                </div>
+                <p>© 2026 Restoran. Sayt barcha foydalanuvchilar uchun ochiq.</p>
             </div>
-            <p>© 2026 Restoran. Sayt barcha foydalanuvchilar uchun ochiq.</p>
-        </div>
-        <div class="footer_right footer_text">
-            <h4>Ish vaqti: 24/7</h4>
-            <h4>restoran@gmail.com</h4>
-            <h4>Halq xizmatida</h4>
-        </div>
-    </footer>
-<!--/Footer section-->
-</body>
+            <div class="footer_right footer_text">
+                <h4>Ish vaqti: 24/7</h4>
+                <h4>restoran@gmail.com</h4>
+                <h4>Halq xizmatida</h4>
+            </div>
+        </footer>
+    <!--/Footer section-->
+    </body>
 </html>
