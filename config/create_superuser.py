@@ -1,6 +1,10 @@
 import os
-from django.contrib.auth import get_user_model
+import sys
 import django
+from django.contrib.auth import get_user_model
+
+# project rootni sys.path ga qo‘shamiz
+sys.path.append("/opt/render/project/src")
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 django.setup()
