@@ -1,0 +1,453 @@
+/* CATEGORY MENU */
+
+.category_menu {
+    width: min(1000px, 92%);
+    margin: 50px auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+/* LINK */
+
+.category_menu > a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ROW CARD */
+
+.category {
+    width: 100%;
+    min-height: 180px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    transition: 0.35s ease;
+}
+
+
+/* HOVER */
+
+.category:hover {
+    transform: translateX(8px);
+
+    border-color: gold;
+
+    box-shadow:
+        0 10px 30px rgba(255, 215, 0, 0.12);
+}
+
+
+/* IMAGE */
+
+.category_data:first-child {
+    width: 230px;
+    height: 140px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+}
+
+.category_data:first-child img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: 0.4s ease;
+}
+
+.category:hover .category_data:first-child img {
+    transform: scale(1.07);
+}
+
+
+/* NAME */
+
+.category_data:nth-child(2) {
+    align-self: flex-start;
+
+    margin-top: 15px;
+}
+
+.category_data:nth-child(2) h4 {
+    margin: 0;
+
+    font-size: 25px;
+
+    transition: 0.3s ease;
+}
+
+.category:hover .category_data:nth-child(2) h4 {
+    color: gold;
+}
+
+
+/* INFO */
+
+.category_data:nth-child(3) {
+    align-self: flex-start;
+
+    margin-top: 55px;
+
+    margin-left: -10px;
+}
+
+.category_data:nth-child(3) p {
+    margin: 0;
+
+    line-height: 1.5;
+
+    opacity: 0.7;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .category {
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .category_data:first-child {
+        width: 130px;
+        height: 110px;
+    }
+
+    .category_data:nth-child(2) {
+        margin-top: 5px;
+    }
+
+    .category_data:nth-child(2) h4 {
+        font-size: 19px;
+    }
+
+    .category_data:nth-child(3) {
+        margin-top: 35px;
+    }
+
+    .category_data:nth-child(3) p {
+        font-size: 13px;
+    }
+}
+
+
+
+
+
+/* =========================
+   CATEGORY BANNER
+========================= */
+
+.category_banner {
+    width: min(1100px, 92%);
+    min-height: 280px;
+
+    margin: 50px auto;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding: 35px;
+
+    box-sizing: border-box;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+}
+
+
+/* banner image */
+
+.category_banner img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: -2;
+}
+
+
+/* dark overlay */
+
+.category_banner::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.15)
+    );
+
+    z-index: -1;
+}
+
+
+/* banner title */
+
+.category_banner .category_name {
+    margin: 0 0 8px;
+
+    font-size: 34px;
+
+    color: white;
+}
+
+
+/* banner info */
+
+.category_banner p {
+    margin: 0;
+
+    max-width: 650px;
+
+    color: rgba(255, 255, 255, 0.8);
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   FOOD MENU
+========================= */
+
+.food_menu {
+    width: min(1200px, 92%);
+
+    margin: 50px auto 80px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* remove link style */
+
+.food_menu > a {
+    text-decoration: none;
+
+    color: inherit;
+}
+
+
+/* =========================
+   FOOD CARD
+========================= */
+
+.food_card {
+    overflow: hidden;
+
+    min-height: 390px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+
+    transition: 0.4s ease;
+}
+
+
+/* hover card */
+
+.food_card:hover {
+    transform: translateY(-8px);
+
+    border-color: gold;
+
+    box-shadow:
+        0 15px 40px rgba(255, 215, 0, 0.15);
+}
+
+
+/* =========================
+   FOOD IMAGE
+========================= */
+
+.food_image {
+    width: 100%;
+    height: 220px;
+
+    overflow: hidden;
+}
+
+.food_image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: 0.5s ease;
+}
+
+
+.food_card:hover .food_image img {
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   FOOD NAME
+========================= */
+
+.food_name {
+    padding: 18px 20px 5px;
+}
+
+.food_name h4 {
+    margin: 0;
+
+    font-size: 23px;
+
+    transition: 0.3s ease;
+}
+
+.food_card:hover .food_name h4 {
+    color: gold;
+}
+
+
+/* =========================
+   FOOD INFO
+========================= */
+
+.food_info {
+    padding: 0 20px;
+
+    flex: 1;
+}
+
+.food_info p {
+    margin: 0;
+
+    line-height: 1.5;
+
+    opacity: 0.7;
+}
+
+
+/* =========================
+   PRICE
+========================= */
+
+.food_narx {
+    padding: 15px 20px 20px;
+}
+
+.food_narx h4 {
+    margin: 0;
+
+    font-size: 22px;
+
+    color: gold;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .food_menu {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .category_banner {
+        min-height: 240px;
+
+        padding: 25px;
+
+        border-radius: 22px;
+    }
+
+    .category_banner .category_name {
+        font-size: 27px;
+    }
+
+    .food_menu {
+        width: 88%;
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .food_card {
+        min-height: 350px;
+    }
+
+    .food_image {
+        height: 200px;
+    }
+
+}

@@ -1,0 +1,516 @@
+/* =========================
+   FOOD ORDERS / CART
+========================= */
+
+.food_orders {
+    width: min(1000px, 92%);
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+
+/* =========================
+   CART ITEM
+========================= */
+
+.cart_item {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    align-items: center;
+    gap: 20px;
+
+    padding: 20px;
+    margin-bottom: 20px;
+
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.08);
+
+    transition: 0.3s ease;
+}
+
+.cart_item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.13);
+}
+
+
+/* =========================
+   FOOD IMAGE
+========================= */
+
+.cart_item img {
+    width: 110px;
+    height: 90px;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+}
+
+
+/* =========================
+   FOOD NAME
+========================= */
+
+.cart_item h3 {
+    margin: 0 0 8px;
+
+    font-size: 20px;
+}
+
+.cart_item p {
+    margin: 6px 0;
+}
+
+
+/* =========================
+   QUANTITY
+========================= */
+
+.quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.quantity a {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    transition: 0.25s ease;
+}
+
+.quantity a:hover {
+    transform: scale(1.15);
+    background: gold;
+    color: black;
+}
+
+.quantity span {
+    min-width: 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   REMOVE BUTTON
+========================= */
+
+.cart_item > a {
+    grid-column: 2 / 4;
+
+    width: fit-content;
+
+    padding: 8px 14px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    background: rgba(255, 70, 70, 0.15);
+
+    transition: 0.25s ease;
+}
+
+.cart_item > a:hover {
+    background: #ff4444;
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   HR
+========================= */
+
+.food_orders hr {
+    border: none;
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    margin: 20px 0;
+}
+
+
+/* =========================
+   TOTAL
+========================= */
+
+.food_orders > h2 {
+    text-align: right;
+
+    margin-top: 30px;
+
+    font-size: 25px;
+}
+
+
+/* =========================
+   ORDER BUTTON
+========================= */
+
+.food_orders form {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 20px;
+}
+
+.food_orders button {
+    padding: 13px 28px;
+
+    border: none;
+    border-radius: 15px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    background: gold;
+    color: black;
+
+    transition: 0.3s ease;
+}
+
+.food_orders button:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.25);
+}
+
+
+/* =========================
+   EMPTY CART
+========================= */
+
+.food_orders > p {
+    text-align: center;
+
+    padding: 50px 0;
+
+    font-size: 20px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .food_orders {
+        width: 90%;
+        padding: 15px;
+        margin: 30px auto;
+    }
+
+    .cart_item {
+        grid-template-columns: 90px 1fr;
+        gap: 15px;
+    }
+
+    .cart_item img {
+        width: 90px;
+        height: 75px;
+    }
+
+    .cart_item h3 {
+        font-size: 17px;
+    }
+
+    .quantity {
+        grid-column: 1 / 3;
+        justify-content: flex-start;
+    }
+
+    .cart_item > a {
+        grid-column: 1 / 3;
+    }
+
+    .food_orders > h2 {
+        text-align: center;
+        font-size: 21px;
+    }
+
+    .food_orders form {
+        justify-content: center;
+    }
+
+    .food_orders button {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+/* =========================
+   FOOD DATA
+========================= */
+
+.food_data {
+    width: min(1000px, 92%);
+    min-height: 420px;
+
+    margin: 70px auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+
+    padding: 35px;
+
+    border-radius: 35px;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+    transition: 0.4s ease;
+}
+
+
+/* =========================
+   FOOD IMAGE
+========================= */
+
+.food_img {
+    width: 100%;
+    height: 350px;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+}
+
+.food_img img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: 0.5s ease;
+}
+
+.food_data:hover .food_img img {
+    transform: scale(1.06);
+}
+
+
+/* =========================
+   FOOD INFO
+========================= */
+
+.food_info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.food_info .category_name {
+    margin: 0;
+
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.food_info p {
+    margin: 0;
+
+    font-size: 17px;
+    line-height: 1.6;
+
+    opacity: 0.8;
+}
+
+.food_info p:last-child {
+    font-size: 25px;
+    font-weight: 700;
+
+    color: gold;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.food_form {
+    grid-column: 1 / -1;
+
+    padding: 25px;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.food_form h4 {
+    margin: 0 0 20px;
+
+    font-size: 22px;
+}
+
+
+/* =========================
+   FORM ELEMENTS
+========================= */
+
+.food_form form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.food_form label {
+    font-size: 16px;
+}
+
+
+/* quantity input */
+
+.food_form input[type="number"] {
+    width: 80px;
+    height: 45px;
+
+    padding: 0 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.1);
+    color: inherit;
+
+    font-size: 17px;
+
+    text-align: center;
+}
+
+
+/* input focus */
+
+.food_form input[type="number"]:focus {
+    border-color: gold;
+
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.2);
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.food_form button {
+    padding: 13px 24px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: gold;
+    color: #111;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.food_form button:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    box-shadow:
+        0 8px 20px rgba(255, 215, 0, 0.25);
+}
+
+.food_form button:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .food_data {
+        width: 88%;
+
+        grid-template-columns: 1fr;
+
+        padding: 20px;
+
+        gap: 25px;
+
+        border-radius: 25px;
+    }
+
+    .food_img {
+        height: 280px;
+    }
+
+    .food_info .category_name {
+        font-size: 26px;
+    }
+
+    .food_form {
+        grid-column: auto;
+    }
+
+    .food_form form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .food_form input[type="number"] {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .food_form button {
+        width: 100%;
+    }
+}
